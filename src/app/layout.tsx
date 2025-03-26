@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { ClerkProvider, SignedIn } from "@clerk/nextjs";
+import { dark } from '@clerk/themes'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,15 +22,9 @@ export default function RootLayout({
       <ClerkProvider
         appearance={{
           layout: {
-            logoImageUrl: "/images/PCU_Logo.png",
+            logoImageUrl: "/images/Ideathon_Logo_White.png",
           },
-          variables: {
-            colorText: "#fff",
-            colorPrimary: "#0E78F9",
-            colorBackground: "#000000",
-            colorInputBackground: "#ddeaf814",
-            colorInputText: "#fff",
-          },
+          baseTheme: dark,
         }}
       >
       <body

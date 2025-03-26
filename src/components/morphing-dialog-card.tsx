@@ -34,7 +34,7 @@ import {
           style={{
             borderRadius: '12px',
           }}
-          className="flex max-w-[270px] flex-col sm:flex-none md:flex-1 overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
+          className="flex w-full flex-col sm:flex-none md:flex-1 overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900"
         >
           <MorphingDialogImage
             src={imageSrc}

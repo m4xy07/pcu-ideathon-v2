@@ -9,7 +9,7 @@ import Link1 from "next/link";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton, useClerk } from "@clerk/nextjs";
 
 const navLinks = [
   {label: "Home", href: "#Home"},
@@ -21,14 +21,15 @@ const navLinks = [
 
 
 
-export const Header = () => {
+export const DashboardHeader = () => {
+  const { signOut } = useClerk();
   
   const [isOpen, setIsOpen] = useState(false);
 
-  return (<header className="py-4 border-b border-white/15 md:border-none sticky top-0 z-10">
+  return (<header className="py-4  border-b border-white/15 md:border-none sticky top-0 z-10">
     <div className="absolute inset-0 backdrop-blur -z-10 md:hidden"></div>
     <div className="container">
-      <div className="flex justify-between items-center md:border border-white/15 md:py-2.5 md:px-4 rounded-xl max-w-[1200px] mx-auto relative">
+      <div className="flex justify-between items-center md:border border-white/15 md:py-2.5 md:px-4 rounded-xl max-w-[1200px]  mx-auto relative">
       <div className="absolute inset-0 backdrop-blur -z-10 hidden md:block"></div>
 
         <div className="justify-left flex w-[103px]">
@@ -65,32 +66,12 @@ export const Header = () => {
             isOpen && '-rotate-45 translate-y-1')}></line>
           </svg>
 
-            <div className="hidden md:flex">
+          <div className="hidden md:flex">
               <SignedIn>
-                <Buttonmain href='#'>Log out</Buttonmain>
+                <Buttonmain href="#" onClick={() => signOut()}>Log out</Buttonmain>
               </SignedIn>
             </div>
-          
 
-          <SignedOut>
-            <SignInButton>
-              <div className="flex gap-8">
-              <Link1 href="/sign-in" className="items-center justify-center text-sm hidden md:flex text-white/70 hover:text-white transition">
-                Log in
-              </Link1>
-
-              <div className="hidden md:flex">
-                <Buttonmain href='https://unstop.com/p/ideathon-20-2025-pimpri-chinchwad-university-maharashtra-1433066?lb=9PcWzBfl'>Register</Buttonmain>
-              </div>
-              </div>
-
-            </SignInButton>
-          </SignedOut>
-
-
-
-          
-          
         </div>
       </div>
       <AnimatePresence>
@@ -108,22 +89,8 @@ export const Header = () => {
         ))}
         <div className="flex pt-6 flex-row gap-8">
         <SignedIn>
-            <Buttonmain href='#'>Log out</Buttonmain>
+            <Buttonmain onClick={() => signOut()}>Log out</Buttonmain>
           </SignedIn>
-
-          <SignedOut>
-            <SignInButton>
-
-              <Link1 href="/sign-in" className="items-center justify-center text-sm hidden md:flex text-white/70 hover:text-white transition">
-                Log in
-              </Link1>
-
-              <div className="hidden md:flex">
-                <Buttonmain href='https://unstop.com/p/ideathon-20-2025-pimpri-chinchwad-university-maharashtra-1433066?lb=9PcWzBfl'>Register</Buttonmain>
-              </div>
-
-            </SignInButton>
-          </SignedOut>
         </div>
         </div>
       </motion.div>

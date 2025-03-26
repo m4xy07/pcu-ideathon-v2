@@ -6,6 +6,7 @@ import Team from "@/sections/Themes";
 import { CallToAction } from "@/sections/CallToAction";
 import ScrollSec from "@/sections/ScrollSec";
 import Prize from "@/sections/Prize";
+import TeamSec from "@/sections/TeamSec";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Team/>
       <ScrollSec/>
       <Prize/>
+      {/* <TeamSec/> */}
       <CallToAction/>
       <Footer />
     </>
