@@ -17,9 +17,12 @@
     "@dotlottie/react-player": "^1.6.19",
     "@heroui/drawer": "^2.2.13",
     "@heroui/react": "^2.7.5",
+    "@hookform/resolvers": "^4.1.3",
     "@lottiefiles/dotlottie-react": "^0.7.2",
+    "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-radio-group": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-toast": "^1.2.6",
     "@react-three/drei": "^10.0.4",
     "@react-three/fiber": "^9.1.0",
     "@splinetool/react-spline": "^4.0.0",
@@ -33,11 +36,13 @@
     "ogl": "^1.0.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2",
     "react-router-dom": "^6.27.0",
     "react-scroll": "^1.9.0",
     "scroll-lock": "^2.1.5",
     "tailwind-merge": "^2.4.0",
-    "three": "^0.174.0"
+    "three": "^0.174.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
