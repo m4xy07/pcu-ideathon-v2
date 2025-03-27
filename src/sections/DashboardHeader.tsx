@@ -11,10 +11,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton, useClerk } from "@clerk/nextjs";
 
+
+
 const navLinks = [
-  {label: "Home", href: "#Home"},
-  {label: "Themes", href: "#Themes"},
-  {label: "Prizes", href: "#Prizes"},
+  {label: "Home", href: "/"},
+  {label: "Themes", href: "/#Themes"},
+  {label: "Prizes", href: "/#Prizes"},
   // {label: "Team", href: "#Team"},
 
 ];
@@ -40,9 +42,9 @@ export const DashboardHeader = () => {
         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2">
 
         <nav className="flex gap-8 text-sm">
-            <Link to="Home" spy={true} smooth={true} offset={50} duration={200} className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Home</Link>
-            <Link to="Themes" spy={true} smooth={true} offset={50} duration={200} className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Themes</Link>
-            <Link to="Prizes" spy={true} smooth={true} offset={50} duration={200} className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Prizes</Link>
+            <Link1 href="/" className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Home</Link1>
+            <Link1 href="/#Themes"  className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Themes</Link1>
+            <Link1 href="/#Prizes"  className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Prizes</Link1>
             {/* <Link to="Team" spy={true} smooth={true} offset={50} duration={200} className="text-white/70 hover:text-white transition" style={{cursor:'pointer'}}>Team</Link> */}
           </nav>
           

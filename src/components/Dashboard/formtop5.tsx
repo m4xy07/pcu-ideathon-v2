@@ -11,14 +11,19 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/formcore";
-import { RadioGroup, RadioGroupItem } from "@/components/Dashboard/radiogroup";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/selectcore";
 import Buttonmain from "../Buttonmain";
 import { useState } from "react";
 
-// Generate an array of 50 team names dynamically
 const teams = Array.from({ length: 50 }, (_, i) => `Team ${i + 1}`);
 
-// Create a dynamic Zod schema to enforce team selection
 const FormSchema = z.object({
   firstChoice: z.enum(teams as [string, ...string[]], {
     required_error: "Kindly select your first favorite team.",
@@ -39,7 +44,7 @@ const FormSchema = z.object({
 
 type ChoiceType = "firstChoice" | "secondChoice" | "thirdChoice" | "fourthChoice" | "fifthChoice";
 
-export function RadioGroupFormTop5() {
+export function SelectFormTop5() {
   const form = useForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -63,8 +68,14 @@ export function RadioGroupFormTop5() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full lg:w-2/3 text-center space-y-6 items-center justify-center mx-auto">
-        {["firstChoice", "secondChoice", "thirdChoice", "fourthChoice", "fifthChoice"].map((choice, index) => {
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full lg:w-2/3 text-center space-y-6 items-center justify-center mx-auto flex flex-col">
+        {[
+          "firstChoice",
+          "secondChoice",
+          "thirdChoice",
+          "fourthChoice",
+          "fifthChoice",
+        ].map((choice, index) => {
           const choiceKey = choice as ChoiceType;
           return (
             <FormField
@@ -72,9 +83,9 @@ export function RadioGroupFormTop5() {
               control={form.control}
               name={choiceKey}
               render={({ field }) => (
-                <FormItem className="space-y-3">
+                <FormItem className="space-y-3 w-full flex flex-col items-center">
                   <div className="pt-8" />
-                  <FormLabel className="text-lg">
+                  <FormLabel className="text-lg text-center">
                     {index === 0 && "Which team did you like the most?"}
                     {index === 1 && "Which team did you like the second most?"}
                     {index === 2 && "Which team did you like the third most?"}
@@ -82,36 +93,33 @@ export function RadioGroupFormTop5() {
                     {index === 4 && "Which team did you like the fifth most?"}
                   </FormLabel>
                   <FormControl>
-                    <RadioGroup
+                    <Select
                       onValueChange={(value) => {
                         field.onChange(value);
                         handleSelection(choiceKey, value);
                       }}
                       value={field.value}
-                      className="grid grids-col-2 md:grid-cols-5 gap-4"
                     >
-                      {teams.map((team) => (
-                        <FormItem key={team} className="flex items-center w-fit space-x-2">
-                          <FormControl>
-                            <RadioGroupItem
+                      <SelectTrigger className="w-full md:w-80 bg-black border border-white/15 rounded-md shadow-sm">
+                        <SelectValue placeholder="Select a team" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-black border border-white/15 rounded-md shadow-md">
+                        <SelectGroup>
+                          {teams.map((team) => (
+                            <SelectItem
+                              key={team}
                               value={team}
                               disabled={
                                 Object.values(selectedTeams).includes(team) && selectedTeams[choiceKey] !== team
                               }
-                            />
-                          </FormControl>
-                          <FormLabel
-                            className={`font-normal text-base ${
-                              Object.values(selectedTeams).includes(team) && selectedTeams[choiceKey] !== team
-                                ? "text-gray-400"
-                                : ""
-                            }`}
-                          >
-                            {team}
-                          </FormLabel>
-                        </FormItem>
-                      ))}
-                    </RadioGroup>
+                              className="transition-all duration-300 hover:bg-white/15 cursor-pointer"
+                            >
+                              {team}
+                            </SelectItem>
+                          ))}
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
                   </FormControl>
                   <FormMessage />
                 </FormItem>

@@ -1,6 +1,6 @@
 import { AccordionIcons } from "@/components/Accordion";
 import { RadioGroupForm } from "@/components/Dashboard/formtop3";
-import { RadioGroupFormTop5 } from "@/components/Dashboard/formtop5";
+import { SelectFormTop5 } from "@/components/Dashboard/formtop5";
 import { NumberTickerDemo } from "@/components/NumberTicker";
 import React from "react";
 
@@ -19,7 +19,7 @@ const DashboardContent = () => {
               
             </div>
             {/* <RadioGroupForm /> */}
-            <RadioGroupFormTop5 />
+            <SelectFormTop5 />
       </div>
     </section>
   );
