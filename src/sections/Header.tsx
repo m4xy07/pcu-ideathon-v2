@@ -67,7 +67,13 @@ export const Header = () => {
 
             <div className="hidden md:flex">
               <SignedIn>
-                <Buttonmain href='#'>Log out</Buttonmain>
+                <div className="flex gap-8">
+                  <Link1 href="/dashboard" className="items-center justify-center text-sm hidden md:flex text-white/70 hover:text-white transition">
+                    Dashboard
+                  </Link1>
+                  <Buttonmain href='#'>Log out</Buttonmain>
+                </div>
+                
               </SignedIn>
             </div>
           
@@ -108,7 +114,13 @@ export const Header = () => {
         ))}
         <div className="flex pt-6 flex-row gap-8">
         <SignedIn>
+          <div className="flex gap-8">
+             <Link1 href="/dashboard" className="items-center justify-center text-sm flex text-white/70 hover:text-white transition">
+                    Dashboard
+                  </Link1>
+                 
             <Buttonmain href='#'>Log out</Buttonmain>
+            </div>
           </SignedIn>
 
           <SignedOut>

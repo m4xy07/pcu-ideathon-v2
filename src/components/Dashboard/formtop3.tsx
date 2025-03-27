@@ -3,8 +3,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -103,7 +101,10 @@ export function RadioGroupForm() {
           );
         })}
         <div className="pt-2" />
-        <Buttonmain type="submit">Submit</Buttonmain>
+        <div className="w-fit !-mt-2 flex">
+          <Buttonmain type="submit">Submit</Buttonmain>
+        </div>
+        
       </form>
     </Form>
   );

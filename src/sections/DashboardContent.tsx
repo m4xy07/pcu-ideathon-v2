@@ -1,5 +1,6 @@
 import { AccordionIcons } from "@/components/Accordion";
-import { RadioGroupForm } from "@/components/Dashboard/form";
+import { RadioGroupForm } from "@/components/Dashboard/formtop3";
+import { RadioGroupFormTop5 } from "@/components/Dashboard/formtop5";
 import { NumberTickerDemo } from "@/components/NumberTicker";
 import React from "react";
 
@@ -12,12 +13,13 @@ const DashboardContent = () => {
                 Vote
               </h2>
               <p className="text-white/70 text-lg text-center mt-5 tracking-tight">
-                Select 3 teams you liked the most.
+                Select the 5 teams you liked the most.
               </p>
 
               
             </div>
-            <RadioGroupForm />
+            {/* <RadioGroupForm /> */}
+            <RadioGroupFormTop5 />
       </div>
     </section>
   );
